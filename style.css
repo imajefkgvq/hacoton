@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+.header img {
+  width: 1320px;
+  height: 712px;
+  margin-left: -40px;
+  z-index: -1999;
+  position: relative;
+}
+header {
+  position: absolute;
+  top: 0;
+  padding-top: 15px;
+
+  margin-left: -11px;
+}
+.two {
+  padding-left: 270px;
+  padding-right: 300px;
+}
+.one {
+  padding-left: 60px;
+}
+.taraz {
+  padding-left: 110px;
+  position: absolute;
+  top: 20%;
+  color: white;
+  font-family: "Righteous", serif;
+}
+.taraz h1 {
+  font-size: 150px;
+}
