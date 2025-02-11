@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taraz, Kazakhstan</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Star Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .card {
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+      .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        height: 100%;
+      }
+      .card img {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .rating {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .rating i {
+        font-size: 25px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      .rating i:hover,
+      .rating i.active {
+        color: #ffd700;
+      }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" data-aos="flip-left">
+        <!-- Left Side: Card with Image and Info -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-12">
+                <img src="image copy.png" class="img-fluid" alt="Arka Taraz" />
+              </div>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <h4 class="card-title">Welcome to Taraz</h4>
+                  <p class="card-text">
+                    Taraz is one of the oldest cities in Kazakhstan, located in
+                    the **Jambyl Region**. It has a history of more than 2000
+                    years and was an important trade center on the **Silk
+                    Road**.
+                  </p>
+                  <ul>
+                    <li>📍 <b>Location:</b> Southern Kazakhstan</li>
+                    <li>🏛 <b>Founded:</b> Over 2000 years ago</li>
+                    <li>🌍 <b>Population:</b> ~400,000 people</li>
+                    <li>🏰 <b>Famous for:</b> Silk Road, Mausoleums</li>
+                    <li>🌡 <b>Climate:</b> Hot summers, cold winters</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Map -->
+        <div class="col-md-6" style="position: relative">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29240.878285762344!2d71.350448!3d42.899912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38a92b8a72c8e7a9%3A0xc50b3e84cd1171b!2sTaraz%2C%20Kazakhstan!5e0!3m2!1sen!2s!4v1707643200000"
+              width="100%"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+
+          <!-- Rating Section Below the Map -->
+          <div class="rating" style="position: absolute; bottom: 0; left: 36%">
+            <h5>Rate Taraz:</h5>
+            <i class="fa-solid fa-star" data-value="1"></i>
+            <i class="fa-solid fa-star" data-value="2"></i>
+            <i class="fa-solid fa-star" data-value="3"></i>
+            <i class="fa-solid fa-star" data-value="4"></i>
+            <i class="fa-solid fa-star" data-value="5"></i>
+            <p id="rating-text" class="mt-2">Click to rate!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const stars = document.querySelectorAll(".rating i");
+      const ratingText = document.getElementById("rating-text");
+
+      stars.forEach((star) => {
+        star.addEventListener("click", function () {
+          let value = this.getAttribute("data-value");
+
+          // Remove active class from all stars
+          stars.forEach((s) => s.classList.remove("active"));
+
+          // Add active class to selected stars
+          for (let i = 0; i < value; i++) {
+            stars[i].classList.add("active");
+          }
+
+          ratingText.textContent = `You rated ${value} stars!`;
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
